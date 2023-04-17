@@ -24,7 +24,7 @@ for(expt in c(0,1,2,3)) {
   pdf = read.csv(fname, sep=" ", header=F)
   colnames(pdf) = c("x", "y", "IR", "PA")
   if(counter %in% c(1, 7, 13, 19)) {
-    x1 = -30; x2 = 30; y1 = -20; y2 = 20
+    x1 = -20; x2 = 40; y1 = -20; y2 = 20
   } else {
     x1 = -20; x2 = 60; y1 = -30; y2 = 30
   }
@@ -62,7 +62,7 @@ grid.arrange(g.p.1, g.p.2, nrow=1)
 dev.off()
 
 # single-plastid cases
-png("single-plastid.png", width=1000*sf, height=300*sf, res=72*sf)
+png("single-plastid.png", width=600*sf, height=200*sf, res=72*sf)
 grid.arrange(plot.ir[[1]], plot.ir[[7]], plot.ir[[13]], plot.ir[[19]], 
              plot.pa[[1]], plot.pa[[7]], plot.pa[[13]], plot.pa[[19]], nrow=2)
 dev.off()
@@ -89,7 +89,7 @@ g2 = ggplot(df[df$hist==2 & df$val != 0,], aes(x=val, y=n, color=Stromule)) +
   geom_line() + theme_classic() +
   xlab("Angle fraction to plastid") + ylab("Area") + facet_wrap(~dist, nrow=1)
 
-png("si-fig-hists.png", width=1000*sf, height=150*sf, res=72*sf)
+png("si-fig-hists.png", width=1000*sf, height=300*sf, res=72*sf)
 grid.arrange(g1, g2, nrow=2)
 dev.off()
 
@@ -110,7 +110,7 @@ g2.b = ggplot(df[df$hist==2 & df$dist==0 & df$val != 0,], aes(x=val, y=n, color=
   geom_line() + theme_classic() +
   xlab("Angle fraction to plastid") + ylab("Area") 
 
-png("fig-hists.png", width=1000*sf, height=400*sf, res=72*sf)
+png("fig-hists.png", width=600*sf, height=260*sf, res=72*sf)
 grid.arrange(g1.b, g1.a, g2.b, g2.a, nrow=2)
 dev.off()
 
